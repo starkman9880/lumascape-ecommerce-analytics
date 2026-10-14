@@ -3,17 +3,17 @@
 
 ### End-to-End Business Intelligence & Data Analytics Portfolio Project
 
-**Tools:** Google Cloud BigQuery · SQL · Looker Studio (Data Studio) · GitHub  
-**Analysis Period:** January 2024 – 2026  
+**Tools:** Google Cloud BigQuery · SQL · Looker Studio · GitHub  
+**Analysis Period:** January 2024 – Available 2026 Data  
 **Focus:** Revenue, profitability, sales trends, product performance, and year-over-year growth
 
 ---
 
 ## 1. Executive Summary
 
-LumaScape is an e-commerce analytics portfolio project focused on transforming transactional sales data into actionable business intelligence.
+LumaScape is an end-to-end e-commerce analytics portfolio project focused on transforming transactional sales data into actionable business intelligence.
 
-The project uses Google BigQuery and SQL reporting views to support a three-page interactive Looker Studio dashboard.
+The project combines Google Cloud BigQuery, SQL reporting views, and a three-page interactive Looker Studio dashboard to analyze financial performance, sales activity, and product category profitability.
 
 The analysis addresses five business questions:
 
@@ -21,33 +21,41 @@ The analysis addresses five business questions:
 2. Which product categories generate the most revenue and profit?
 3. How are order volume and units sold changing?
 4. Is gross margin remaining stable as the business grows?
-5. How does performance compare year over year?
+5. How does current-year performance compare with the equivalent prior-year period?
 
-The objective is to demonstrate an end-to-end analytics workflow, from structured transactional data to executive reporting and business recommendations.
+**Project Objective:** Demonstrate a complete business intelligence workflow, from transactional data and cloud-based SQL analysis to executive dashboards, business insights, and management recommendations.
+
+---
 
 ## 2. Business Problem
 
-E-commerce businesses generate large volumes of customer, order, product, and transaction data.
+E-commerce businesses generate transactional data across customers, orders, products, sales, and returns.
 
-Without centralized reporting, management may struggle to understand sales performance, identify profitable product categories, and monitor growth.
+Without centralized reporting, management may struggle to monitor profitability, identify high-performing product categories, understand sales trends, and evaluate year-over-year growth.
 
-LumaScape addresses these challenges through a structured reporting model designed to provide:
+LumaScape addresses these challenges through a structured analytics model designed to provide:
 
 - Executive visibility into financial performance
-- Consistent KPI definitions
-- Monthly sales and profitability trends
-- Product category comparisons
-- Year-over-year growth analysis
+- Consistent financial and operational KPI definitions
+- Monthly revenue and gross profit reporting
+- Sales volume and units sold analysis
+- Product category revenue and profitability comparisons
+- Comparable year-over-year growth analysis
 - Interactive date-based reporting
+- Actionable management recommendations
+
+---
 
 ## 3. Technology Stack
 
 | Technology | Purpose |
 |---|---|
-| Google Cloud BigQuery | Cloud data warehouse |
+| Google Cloud BigQuery | Cloud-based data warehouse |
 | SQL | Data transformation, aggregation, and KPI calculations |
-| Looker Studio / Data Studio | Interactive business intelligence dashboards |
-| GitHub | Project documentation and version control |
+| Looker Studio | Interactive business intelligence dashboards |
+| GitHub | SQL documentation, screenshots, and version control |
+
+---
 
 ## 4. Data Architecture
 
@@ -77,42 +85,43 @@ E-Commerce Transactional Data
 
 ### Source Tables
 
-The BigQuery dataset `lumascape_analytics` contains five core tables:
+The BigQuery dataset `lumascape_analytics` contains five core transactional and reference tables.
 
-| Table | Analytical purpose |
+| Table | Analytical Purpose |
 |---|---|
 | `customers` | Customer information and segmentation |
 | `orders` | Order-level transactions and dates |
-| `order_items` | Product-level sales, quantity, pricing, discounts, and costs |
-| `products` | Product details and categories |
+| `order_items` | Product-level sales, quantities, pricing, discounts, and costs |
+| `products` | Product information and categories |
 | `returns` | Product return information |
 
-### Reporting Views
+### SQL Reporting Views
 
-The project includes reporting views supporting:
+The analytical model supports reporting across:
 
 - Product category performance
-- Monthly product category performance
-- Monthly financial performance
-- Monthly returns performance
+- Monthly category performance
+- Monthly sales performance
 - Comparable year-over-year growth
-- Customer acquisition performance
-- Customer segmentation
-- Geographic performance
+- Returns performance
+- Customer acquisition and segmentation
+- Geographic sales performance
 
-These views separate analytical calculations from dashboard presentation.
+The published SQL files document core reporting calculations used in the portfolio project.
+
+---
 
 ## 5. KPI Framework
 
-| KPI | Business definition |
+| KPI | Business Definition |
 |---|---|
 | Net Revenue | Sales revenue after recorded discounts |
 | Gross Profit | Net revenue minus cost of goods sold |
 | Gross Margin % | Gross profit divided by net revenue |
-| Total Orders | Distinct customer orders |
-| Units Sold | Total product units sold |
-| Revenue Growth YoY | Percentage change in revenue versus the comparable prior-year period |
-| Profit Growth YoY | Percentage change in gross profit versus the comparable prior-year period |
+| Total Orders | Number of distinct customer orders |
+| Units Sold | Total quantity of products sold |
+| Revenue Growth YoY % | Percentage change in revenue versus the comparable prior-year period |
+| Profit Growth YoY % | Percentage change in gross profit versus the comparable prior-year period |
 
 ### Core Financial Calculations
 
@@ -149,53 +158,90 @@ SUM(
 100 * SAFE_DIVIDE(gross_profit, net_revenue)
 ```
 
-These definitions reflect the transaction-level reporting logic used in the project.
+The financial calculations are based on the project's transaction-level reporting logic.
+
+---
 
 ## 6. Executive Dashboard
 
-The interactive Looker Studio report contains three pages.
+The LumaScape Looker Studio report contains three analytical pages.
 
 ### Page 1 — E-Commerce Performance Overview
 
-Provides executive-level visibility into:
+**Purpose:** Provide executive-level visibility into financial performance and business growth.
 
-- Net revenue
-- Gross profit
-- Total orders
-- Units sold
-- Gross margin percentage
-- Revenue growth YoY
-- Profit growth YoY
-- Monthly revenue and gross profit trends
+**Key Performance Indicators**
+
+- Net Revenue
+- Gross Profit
+- Total Orders
+- Units Sold
+- Gross Margin %
+- Revenue Growth YoY %
+- Profit Growth YoY %
+
+**Visualizations**
+
+- Executive KPI scorecards
+- Monthly Net Revenue Trend
+- Monthly Gross Profit Trend
+- Executive Business Insights
+
+**Business Questions**
+
+1. How much revenue and gross profit is the business generating?
+2. How are financial results changing over time?
+3. How does current-year performance compare with the prior year?
+4. Is gross profit growing at a similar rate to revenue?
 
 ### Page 2 — Sales & Product Performance
 
-Analyzes:
+**Purpose:** Analyze sales volume and identify the product categories contributing most to business performance.
 
-- Monthly total orders
-- Monthly units sold
-- Net revenue by product category
-- Gross profit by product category
-- Category-level business insights
+**Visualizations**
+
+- Monthly Total Orders Trend
+- Monthly Units Sold Trend
+- Net Revenue by Product Category
+- Gross Profit by Product Category
+- Product Category Business Insights
+
+**Business Questions**
+
+1. Which product categories generate the most revenue?
+2. Which categories contribute the most gross profit?
+3. How are orders and units sold changing over time?
+4. Which categories require further management investigation?
 
 ### Page 3 — Profitability & Margin Analysis
 
-Analyzes:
+**Purpose:** Evaluate gross profit growth and gross margin stability.
 
-- Monthly gross profit trends
-- Gross margin percentage trends
-- Profitability stability
-- Business interpretations and recommendations
+**Visualizations**
 
-The dashboard supports date filtering across the available reporting periods.
+- Monthly Gross Profit Trend
+- Gross Margin %
+- Profitability and Margin Insights
+
+**Business Questions**
+
+1. Is gross profit increasing?
+2. Is gross margin stable as sales expand?
+3. What additional analysis could explain changes in profitability?
+
+**Dashboard Functionality**
+
+The Looker Studio dashboard includes date controls for examining different reporting periods.
+
+---
 
 ## 7. Selected Results
 
 ### 2026 Executive Overview
 
-The 2026 dashboard displays the following results for the selected reporting period:
+The dashboard displays the following results for the selected 2026 reporting period.
 
-| Metric | Dashboard result |
+| Metric | Dashboard Result |
 |---|---:|
 | Net Revenue | $11.39M |
 | Gross Profit | $5.18M |
@@ -205,54 +251,98 @@ The 2026 dashboard displays the following results for the selected reporting per
 | Revenue Growth YoY | 156.76% |
 | Profit Growth YoY | 156.44% |
 
-*Values are displayed as rounded dashboard figures. The 2026 reporting period contains data through the latest available transaction month rather than necessarily representing a completed calendar year.*
+**Reporting Note:** These are rounded dashboard values for the selected reporting period. Available 2026 data does not necessarily represent a completed calendar year.
 
-### Product Category Performance
+### Full-Period Product Category Performance
 
-Across the full reporting period, Transformers lead the analyzed product categories in both net revenue and gross profit.
+Across the analyzed reporting period, Transformers lead the product categories in both net revenue and gross profit.
 
-Other significant categories include Spotlights, Floodlights, Well Lights, and Path Lights.
+Other major categories include:
 
-Category-level comparisons help management identify which product lines contribute most strongly to financial performance.
+- Spotlights
+- Floodlights
+- Well Lights
+- Path Lights
+- Accessories
+
+Product category comparisons help identify which product lines contribute most to revenue and profitability.
+
+---
 
 ## 8. Business Insights
 
-### Revenue and Profit Growth
+### Insight 1 — Strong Revenue Growth
 
-The dashboard shows substantial revenue and gross profit growth, particularly during 2026.
+Comparable net revenue increased by 156.76% versus the equivalent prior-year period.
 
-This creates an opportunity to investigate whether growth is being driven by increasing order volume, units sold, product mix, or changes in average selling prices.
+This indicates substantial growth in the selected reporting comparison.
 
-### Margin Stability
+Further analysis should determine how much of this increase is attributable to order volume, units sold, pricing, and product mix.
 
-Gross margin generally remains near 45%–46% across the observed periods.
+### Insight 2 — Gross Profit Growth
 
-This suggests that profitability has remained relatively stable as sales expanded, although category-level margin differences require additional investigation.
+Comparable gross profit increased by 156.44%.
 
-### Product Category Leadership
+Gross profit growth closely tracked revenue growth, suggesting that overall profitability scaled alongside sales.
 
-Transformers generate the highest revenue and gross profit among the analyzed categories.
+### Insight 3 — Gross Margin Stability
 
-Comparing revenue, gross profit, and gross margin by category can reveal whether high sales volume translates into strong profitability.
+Gross margin generally remained around 45%–46% across the analyzed periods.
 
-### Sales Volume
+This suggests relatively stable gross profitability despite significant growth in sales and gross profit.
 
-Monthly orders and units sold increase over the reporting period.
+### Insight 4 — Product Category Leadership
 
-Tracking both metrics provides additional context for revenue growth.
+Transformers generated the highest revenue and gross profit across the analyzed categories.
+
+Category-level margin comparisons would help determine whether the highest-revenue products also provide the strongest profitability rates.
+
+### Insight 5 — Increasing Sales Activity
+
+Monthly total orders and units sold increased over the reporting period, with particularly strong growth during 2026.
+
+This provides additional context for the financial performance trends.
+
+---
 
 ## 9. Business Recommendations
 
-1. **Investigate growth drivers:** Separate the effects of order volume, units per order, product pricing, and category mix.
-2. **Monitor gross margins:** Track profitability as revenue increases.
-3. **Evaluate product categories:** Compare category revenue, gross profit, and gross margin to identify opportunities.
-4. **Analyze customer behavior:** Extend reporting to customer acquisition, retention, and purchasing patterns.
-5. **Track returns:** Assess how returns affect realized revenue and category performance.
-6. **Automate executive reporting:** Maintain consistent KPI calculations through reusable BigQuery reporting views.
+### 1. Investigate Revenue Growth Drivers
+
+Separate the contributions of:
+
+- Order volume
+- Units per order
+- Average selling price
+- Product category mix
+
+### 2. Monitor Gross Margin Performance
+
+Track gross margin alongside net revenue and gross profit to identify changes in profitability.
+
+### 3. Evaluate Product Category Profitability
+
+Compare category revenue, gross profit, and gross margin to identify opportunities for product portfolio optimization.
+
+### 4. Expand Customer Analytics
+
+Investigate customer acquisition, retention, purchasing frequency, and segmentation.
+
+### 5. Analyze Product Returns
+
+Evaluate how returns affect realized revenue and category performance.
+
+### 6. Standardize Executive Reporting
+
+Maintain reusable SQL reporting views and consistent KPI definitions to support reliable recurring analysis.
+
+---
 
 ## 10. Project Deliverables
 
-This repository is intended to contain:
+The repository contains SQL reporting views, dashboard documentation, and screenshots.
+
+### Repository Structure
 
 ```text
 lumascape-ecommerce-analytics/
@@ -261,65 +351,166 @@ lumascape-ecommerce-analytics/
 |
 |-- sql/
 |   |-- README.md
-|   |-- reporting-view SQL files
+|   |-- vw_category_performance.sql
+|   |-- vw_comparable_yoy_growth.sql
+|   |-- vw_monthly_category_performance.sql
+|   |-- vw_monthly_sales_performance.sql
 |
 |-- dashboard/
-|   |-- README.md
-|   |-- executive-overview.png
-|   |-- sales-product-performance.png
-|   |-- profitability-margin-analysis.png
-|
-|-- data/
-|   |-- README.md
-|   |-- sanitized sample data or data dictionary
-|
-|-- docs/
-    |-- business-insights.md
-    |-- kpi-definitions.md
+    |-- README.md
+    |-- executive-overview.png
+    |-- executive-insights.png
+    |-- category-performance.png
+    |-- product-category-analysis.png
+    |-- product-category-insights.png
+    |-- profitability-margin-analysis.png
+    |-- profitability-margin-insights.png
 ```
 
-*The directory structure above describes the planned repository organization. Files will be added as they are prepared and reviewed.*
+### SQL Documentation
 
-## 11. Skills Demonstrated
+[Explore SQL Reporting Views](sql/README.md)
+
+### Dashboard Documentation
+
+[Explore the Executive Dashboard](dashboard/README.md)
+
+---
+
+## 11. Dashboard Screenshots
+
+The following screenshots demonstrate the LumaScape e-commerce business intelligence dashboard developed using Google BigQuery, SQL, and Looker Studio.
+
+### Executive Performance Overview
+
+![LumaScape Executive Performance Overview](dashboard/executive-overview.png)
+
+### Executive Business Insights
+
+![LumaScape Executive Business Insights](dashboard/executive-insights.png)
+
+### Sales and Product Performance
+
+![LumaScape Sales and Product Performance](dashboard/category-performance.png)
+
+### Product Category Revenue and Profitability
+
+![LumaScape Product Category Revenue and Profitability](dashboard/product-category-analysis.png)
+
+### Product Category Business Insights
+
+![LumaScape Product Category Business Insights](dashboard/product-category-insights.png)
+
+### Profitability and Margin Analysis
+
+![LumaScape Profitability and Margin Analysis](dashboard/profitability-margin-analysis.png)
+
+### Profitability and Margin Business Insights
+
+![LumaScape Profitability and Margin Business Insights](dashboard/profitability-margin-insights.png)
+
+---
+
+## 12. Skills Demonstrated
+
+### Data Analytics
 
 - SQL querying and aggregation
 - Relational data modeling
-- Cloud-based data analysis using BigQuery
-- Financial KPI development
-- Year-over-year comparative analysis
-- Product performance analytics
-- Interactive dashboard development
-- Data storytelling
-- Business recommendations
+- Financial KPI calculations
+- Monthly trend analysis
+- Comparable year-over-year analysis
+- Product category performance analysis
+
+### Business Intelligence
+
+- Executive dashboard development
+- Interactive date filtering
+- KPI scorecard design
+- Business performance reporting
+- Data visualization
+- Business insight communication
+
+### Cloud Analytics
+
+- Google Cloud BigQuery
+- Cloud-based analytical reporting
+- Reusable SQL reporting views
+- Data transformation and aggregation
+
+### Business Analysis
+
+- Business problem identification
+- KPI definition
+- Revenue and profitability evaluation
+- Product performance interpretation
+- Management recommendations
 - Technical documentation
 
-## 12. Project Status
+---
 
-**Completed**
+## 13. Project Status
 
-- BigQuery transactional data model
-- SQL reporting views
-- Three-page Looker Studio dashboard
-- Financial and sales KPI reporting
-- Product category analysis
-- Date-filter verification
-- Year-over-year growth scorecard verification
+### Completed
 
-**Portfolio Packaging In Progress**
+- [x] BigQuery transactional data model
+- [x] Core SQL reporting views
+- [x] Three-page Looker Studio dashboard
+- [x] Financial and sales KPI reporting
+- [x] Product category analysis
+- [x] Date-filter verification
+- [x] Year-over-year growth scorecard verification
+- [x] Dashboard screenshot publication
+- [x] Dashboard README documentation
+- [x] Main repository README documentation
 
-- SQL source documentation
-- Dashboard screenshot publication
-- Data dictionary and KPI documentation
-- Detailed business case study
-- Portfolio website integration
+### Portfolio Development — Next Steps
 
-## 13. Data and Portfolio Disclaimer
+- [ ] Review and expand SQL source documentation
+- [ ] Create data dictionary and detailed KPI documentation
+- [ ] Develop a standalone LumaScape portfolio case study
+- [ ] Integrate LumaScape into the personal portfolio website
+- [ ] Test portfolio website responsiveness
+- [ ] Publish and verify portfolio website links
 
-LumaScape is an e-commerce analytics portfolio case study. Reported figures are project dataset results and should not be interpreted as audited financial results from a real business.
+---
 
-This repository is intended for educational, analytical, and professional portfolio demonstration purposes.
+## 14. Portfolio Value
+
+LumaScape demonstrates the ability to transform e-commerce transactional data into structured analytical reporting.
+
+The project combines:
+
+- Cloud data warehousing
+- SQL reporting and KPI calculations
+- Interactive dashboard development
+- Revenue and profitability analysis
+- Product performance analytics
+- Business recommendations
+- Professional GitHub documentation
+
+**Target Roles**
+
+- Data Analyst
+- Business Intelligence Analyst
+- Business Analyst
+- E-Commerce Analyst
+- Cloud Data Analyst
+
+---
+
+## 15. Data and Portfolio Disclaimer
+
+LumaScape is an e-commerce analytics portfolio case study.
+
+The reported figures represent project dataset results and should not be interpreted as audited financial results from a real business.
+
+The project is intended for educational, analytical, and professional portfolio demonstration purposes.
 
 ---
 
 **Project:** LumaScape E-Commerce Analytics  
-**Portfolio Focus:** Data Analyst · Business Intelligence Analyst · Cloud Data Analytics
+**Portfolio Focus:** Data Analytics | Business Intelligence | Cloud Analytics | E-Commerce Performance
+
+**GitHub Repository:**  
+https://github.com/starkman9880/lumascape-ecommerce-analytics
